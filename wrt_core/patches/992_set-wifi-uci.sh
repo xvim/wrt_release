@@ -35,6 +35,7 @@ EOF
 }
 
 jdc_ax1800_pro_wifi_cfg() {
+	[ -d /lib/firmware/ath11k/IPQ6018 ] && [ ! -d /lib/firmware/IPQ6018 ] && ln -s /lib/firmware/ath11k/IPQ6018 /lib/firmware/IPQ6018
 	configure_wifi 0 149 HE80 20 'JDC_AX1800PRO_5G' '12345678'
 	configure_wifi 1 1 HE20 20 'JDC_AX1800PRO' '12345678'
 }
@@ -46,6 +47,7 @@ jdc_ax6600_wifi_cfg() {
 }
 
 redmi_ax5_wifi_cfg() {
+	[ -d /lib/firmware/ath11k/IPQ6018 ] && [ ! -d /lib/firmware/IPQ6018 ] && ln -s /lib/firmware/ath11k/IPQ6018 /lib/firmware/IPQ6018
 	configure_wifi 0 149 HE80 20 'Redmi_AX5_5G' '12345678'
 	configure_wifi 1 1 HE20 20 'Redmi_AX5' '12345678'
 }
