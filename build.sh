@@ -176,18 +176,23 @@ remove_uhttpd_dependency() {
 }
 
 apply_config() {
-    \cp -f "$CONFIG_FILE" "$BASE_PATH/../$BUILD_DIR/.config"
+    local DEST_CONFIG="$BASE_PATH/../$BUILD_DIR/.config"
     
-    if grep -qE "(ipq60xx|ipq807x)" "$BASE_PATH/../$BUILD_DIR/.config" &&
-        ! grep -q "CONFIG_GIT_MIRROR" "$BASE_PATH/../$BUILD_DIR/.config"; then
-        cat "$BASE_PATH/deconfig/nss.config" >> "$BASE_PATH/../$BUILD_DIR/.config"
+    # 1. 先写入基础编译配置
+    \cp -f "$BASE_PATH/deconfig/compile_base.config" "$DEST_CONFIG"
+
+    # 2. 追加 NSS 配置 (针对 ipq60xx/ipq807x)
+    if grep -qE "(ipq60xx|ipq807x)" "$CONFIG_FILE" &&
+        ! grep -q "CONFIG_GIT_MIRROR" "$CONFIG_FILE"; then
+        cat "$BASE_PATH/deconfig/nss.config" >> "$DEST_CONFIG"
     fi
 
-    cat "$BASE_PATH/deconfig/compile_base.config" >> "$BASE_PATH/../$BUILD_DIR/.config"
+    # 3. 追加 Docker 依赖和代理配置
+    cat "$BASE_PATH/deconfig/docker_deps.config" >> "$DEST_CONFIG"
+    cat "$BASE_PATH/deconfig/proxy.config" >> "$DEST_CONFIG"
 
-    cat "$BASE_PATH/deconfig/docker_deps.config" >> "$BASE_PATH/../$BUILD_DIR/.config"
-
-    cat "$BASE_PATH/deconfig/proxy.config" >> "$BASE_PATH/../$BUILD_DIR/.config"
+    # 4. 最后追加设备特定的配置，确保其具有最高优先级 (可以覆盖前面的配置)
+    cat "$CONFIG_FILE" >> "$DEST_CONFIG"
 }
 
 REPO_URL=$(read_ini_by_key "REPO_URL")
