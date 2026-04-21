@@ -267,7 +267,8 @@ update_nss_pbuf_performance() {
 set_build_signature() {
     local file="$BUILD_DIR/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js"
     if [ -d "$(dirname "$file")" ] && [ -f $file ]; then
-        sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ build by ZqinKing')/g" "$file"
+        local build_date=$(date +'%Y-%m-%d %H:%M:%S')
+        sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ build in ${build_date}')/g" "$file"
     fi
 }
 
