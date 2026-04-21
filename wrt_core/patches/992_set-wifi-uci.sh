@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Fix firmware path for ath11k (6.x kernel)
+if [ -d "/lib/firmware/ath11k/IPQ6018" ] && [ ! -d "/lib/firmware/IPQ6018" ]; then
+    ln -s /lib/firmware/ath11k/IPQ6018 /lib/firmware/IPQ6018
+fi
+
 board_name=$(cat /tmp/sysinfo/board_name)
 
 configure_wifi() {

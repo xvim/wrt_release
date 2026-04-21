@@ -1,0 +1,12 @@
+{
+  "last_session_id": "a0e94551-edba-4c1a-b585-564f221cf4ae",
+  "last_event_key": "a0e94551-edba-4c1a-b585-564f221cf4ae:transcript:5a5091dd6be925caca38274b2d66420a8ed803fc14bd254ec0cfcdc7d038e1db",
+  "last_prompted_session_id": "a0e94551-edba-4c1a-b585-564f221cf4ae",
+  "last_reason": "actionable-session-detected",
+  "last_prompted_at": "2026-04-21T04:47:39.224Z",
+  "last_user_message_count": 10,
+  "last_actionable_message_count": 0,
+  "deep_interview_lock_active": false,
+  "deep_interview_lock_source": "/Users/liucong/working/wrt_release/.omg/state/deep-interview.json",
+  "updated_at": "2026-04-21T04:47:39.224Z"
+}

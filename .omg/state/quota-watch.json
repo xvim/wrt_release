@@ -1,0 +1,19 @@
+{
+  "turn_count": 5,
+  "last_session_id": "a0e94551-edba-4c1a-b585-564f221cf4ae",
+  "last_event_key": "a0e94551-edba-4c1a-b585-564f221cf4ae:transcript:5a5091dd6be925caca38274b2d66420a8ed803fc14bd254ec0cfcdc7d038e1db",
+  "last_transcript_hash": "5a5091dd6be925caca38274b2d66420a8ed803fc14bd254ec0cfcdc7d038e1db",
+  "last_model": "gemini-3-flash-preview",
+  "last_provider": "gemini",
+  "last_turn_total_tokens": 63138,
+  "last_session_total_tokens": 1890989,
+  "session_totals_by_model": {
+    "gemini-3-flash-preview": 1890989
+  },
+  "session_totals_by_provider": {
+    "gemini": 1890989
+  },
+  "cwd_mode": "parent-leaf",
+  "last_cwd_label": "working/wrt_release",
+  "updated_at": "2026-04-21T04:47:39.235Z"
+}
